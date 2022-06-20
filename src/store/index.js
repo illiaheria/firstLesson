@@ -5,7 +5,7 @@ const initialState = [];
 function todoReducer(state = initialState, action) {
   switch (action.type) {
     case "addTodo":
-      return [...state, action?.payload];
+      return state;
     default:
       return state;
   }
