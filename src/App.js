@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Header } from "./components/Header";
 import { TodoApp } from "./components/TodoApp";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import store from "./store";
 import { Notification } from "./components/Notification";
 import "./App.css";
 

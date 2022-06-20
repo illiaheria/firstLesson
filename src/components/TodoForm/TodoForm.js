@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { addTodo } from "../../store/todoSlice";
 import { useDispatch } from "react-redux";
 
 export const TodoForm = ({ setIsShowPopUp }) => {
   const [todo, setTodo] = useState("");
   const dispatch = useDispatch();
-  const addTodo = () => {
-    dispatch({
-      type: "addTodo",
-      payload: { id: new Date().toISOString(), text: todo, completed: false },
-    });
+  const handleAddTodo = () => {
+    dispatch(
+      addTodo({ id: new Date().toISOString(), text: todo, completed: false })
+    );
     setIsShowPopUp(true);
     setTodo("");
   };
@@ -19,7 +19,7 @@ export const TodoForm = ({ setIsShowPopUp }) => {
     <div>
       <input name="name" type="text" value={todo} onChange={onChange} />
       <br />
-      <button disabled={!todo?.length} onClick={addTodo}>
+      <button disabled={!todo?.length} onClick={handleAddTodo}>
         Add todo
       </button>
     </div>

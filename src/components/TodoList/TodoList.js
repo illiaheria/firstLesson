@@ -5,6 +5,7 @@ import { TodoItem } from "../TodoItem";
 
 export const TodoList = () => {
   const todosList = useSelector(getTodos);
+  console.log(todosList);
   return (
     <ul>
       {todosList?.map((todo) => (
