@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Select } from "../Select";
-import styles from "./CreateTodo.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { getTodoSelectore } from "../../store/selectors";
+import styles from "./TodoApp.module.css";
 
 const options = ["home work", "study", "project"];
 
-export const CreateTodo = ({ todos, setTodos, setIsShowPopUp }) => {
+export const TodoApp = ({ todos, setTodos, setIsShowPopUp }) => {
+  const data = useSelector(getTodoSelectore);
+  const dispatch = useDispatch();
+  console.log(data);
   const [todo, setTodo] = useState({ name: "", type: options[0] });
   const onChange = (e) => {
     const fieldName = e.target.name;
@@ -14,6 +19,7 @@ export const CreateTodo = ({ todos, setTodos, setIsShowPopUp }) => {
     setTodos((prevTodos) => [...prevTodos, todo]);
     setTodo({ name: "", type: options[0] });
     setIsShowPopUp(true);
+    dispatch({ type: "addTodo", payload: todo });
   };
 
   return (

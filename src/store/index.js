@@ -1,12 +1,14 @@
 import { createStore } from "redux";
 
-function todoReducer(state = [], action) {
+const initialState = [];
+
+function todoReducer(state = initialState, action) {
   switch (action.type) {
-    case "add":
-      return {};
+    case "addTodo":
+      return [...state, action?.payload];
     default:
       return state;
   }
 }
 
-const store = createStore(todoReducer);
+export const store = createStore(todoReducer);
