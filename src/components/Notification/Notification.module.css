@@ -1,0 +1,16 @@
+.notifications {
+  max-width: 350px;
+  width: 370px;
+  border-radius: 8px;
+  top: 50%;
+  position: fixed;
+  right: 35%;
+  background: rgba(16, 24, 40, 0.8);
+  padding: 18px 0 18px 16px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+}
