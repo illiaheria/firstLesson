@@ -3,9 +3,18 @@ import { createStore } from "redux";
 const initialState = [];
 
 function todoReducer(state = initialState, action) {
-  switch (action.type) {
+  const { type, payload = null } = action;
+  switch (type) {
     case "addTodo":
-      return state;
+      return [...state, payload];
+    case "removeTodo":
+      return state.filter((todo) => todo.id !== payload);
+    case "toggleComplete":
+      return state.map((todo) => {
+        return todo.id === payload
+          ? { ...todo, completed: !todo.completed }
+          : todo;
+      });
     default:
       return state;
   }

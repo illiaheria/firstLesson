@@ -3,11 +3,10 @@ import { TodoForm } from "../TodoForm";
 import { TodoList } from "../TodoList";
 import styles from "./TodoApp.module.css";
 
-export const TodoApp = ({ todos, setTodos, setIsShowPopUp }) => {
-  console.log(todos);
+export const TodoApp = ({ setIsShowPopUp }) => {
   return (
     <div className={styles.createTodoContainer}>
-      <TodoForm setTodos={setTodos} setIsShowPopUp={setIsShowPopUp} />
+      <TodoForm setIsShowPopUp={setIsShowPopUp} />
       <TodoList />
     </div>
   );
